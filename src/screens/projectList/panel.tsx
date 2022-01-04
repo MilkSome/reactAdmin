@@ -1,7 +1,24 @@
 import React from "react";
-import { useEffect, useState } from "react";
 
-export const Panel = ({ param, setParam, users }) => {
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  title: string;
+  organization: string;
+  token: string;
+}
+
+interface SearchPanelProps {
+  users: User[];
+  param: {
+    name: string;
+    id: string;
+  };
+  setParam: (param: SearchPanelProps["param"]) => void;
+}
+
+export const Panel = ({ param, setParam, users }: SearchPanelProps) => {
   return (
     <form>
       <div>
