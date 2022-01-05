@@ -6,8 +6,6 @@ import { cleanObject, useDebounce, useMount } from "../../utils";
 import * as qs from "qs";
 import { useHttp } from "utils/http";
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 export const ProjectListScreen = () => {
   const [param, setParam] = useState({
     name: "",
@@ -27,7 +25,7 @@ export const ProjectListScreen = () => {
   }, [debouncedParam]);
 
   useMount(() => {
-    client("users").then(useState);
+    client("users").then(setUsers);
   });
 
   return (
